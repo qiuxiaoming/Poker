@@ -1,15 +1,37 @@
 import pytest
 
-
+#test every module
 
 def test_High_Card():
-    assert play("Black:2H 3D 5S 9C KD  White:2C 3H 4S 8C AH") == "White wins"
+    assert play("Black: 2H 4S 5C 9D AH White: 9S 8S AS QS 3S") == "White wins"
+
+def test_Pair():
+    assert play("Black: 2H 2D 5S 7C KD  White: 9C 4H 4S 8C AH") == "White wins"
+
+def test_Two_Pairs():
+    assert play("Black: 3C 3H 5S 5C KD  White: 2H 2D 4S 4C AH") == "Black wins"
+
+def test_Three_Of_A_kind():
+   assert play("Black: 3C 3H 3S 5C KD  White: 2H 2D 2S 4C AH") == "Black wins"
+
+def test_Straight():
+    assert play("Black: 3C 4H 5S 6C 7D  White: 7H 8D 9S 10C JH") == "White wins"
+
+def test_Flush():
+    assert play("Black: 3C 4C 5C 6C 7C  White: 7H 8H 9H 10H JH") == "White wins"
 
 def test_Full_House():
     assert play("Black: 2H 4S 4C 2D 4H White: 2S 8S AS QS 3S") =="Black wins"
 
+def test_Four_A_Kind():
+    assert play("Black: 3C 3D 3S 3H 7C  White: 7C 7D 7S 7H JH") == "White wins"
+
+def test_Straight_Flush():
+    assert play("Black: 2C 3C 4C 5C 6C  White: 7D 8D 9D 10D JD") == "White wins"
+
 def test_Tie():
     assert play("Black: 2H 3D 5S 9C KD White: 2D 3H 5C 9S KH") =="Tie"
+
 
 
 def parseInput(myinput):
